@@ -1,3 +1,5 @@
+import { PluginSettings } from "./app";
+
 export type PostMessage =
   | {
       type: "refreshFigmaData";
@@ -27,8 +29,7 @@ export type PostMessage =
     };
 
 export type UIPostMessagePayload = {
-  fileKey: string;
-  currentUser: string;
+  settings: PluginSettings;
 };
 
 export type UIPostMessage = {
