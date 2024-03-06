@@ -9,12 +9,6 @@ let settings: PluginSettings = {};
 // If you need to store a subset of the PluginSettings
 // export type StoredSettings = Omit<PluginSettings, "lastUpdated">;
 
-export const init = async () => {
-  settings = await getStoredSettings();
-  getFigmaData();
-  return;
-};
-
 export const getStoredSettings = async (): Promise<PluginSettings> => {
   const storedSettings = await figma.clientStorage.getAsync("settings");
   console.log("get stored settings:", { storedSettings });
@@ -38,6 +32,12 @@ export const setStoredSettings = async (
     .finally(() => {
       getFigmaData();
     });
+};
+
+export const init = async () => {
+  settings = await getStoredSettings();
+  getFigmaData();
+  return;
 };
 
 export const getFigmaData = () => {
