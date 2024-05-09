@@ -2,6 +2,7 @@ import { useCallback, useEffect } from "react";
 import { UIPostMessage } from "./common/msg";
 import { useAppState, useDispatch, useFigmaData } from "./hooks/appContext";
 import { LogData, LogElement } from "./components/logger";
+import { Button } from "@/ui/components/button";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,9 +44,10 @@ function App() {
 
   return (
     <LogElement>
-      <main>
+      <main className="space-y-4 p-4">
         <h1>Figma Plugin Template</h1>
         <div>Add UI</div>
+        <Button>Click me</Button>
         <div>
           <LogData data={data} />
         </div>
